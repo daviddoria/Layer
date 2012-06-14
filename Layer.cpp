@@ -36,7 +36,7 @@ Layer::Layer()
   this->ImageSlice->SetMapper(this->ImageSliceMapper);
 
   this->ImageSlice->GetProperty()->SetInterpolationTypeToNearest(); // Don't blur pixels
-  
+
   Setup();
 }
 
