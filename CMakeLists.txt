@@ -1,7 +1,13 @@
+cmake_minimum_required(VERSION 2.6)
+
+Project(Layer)
 
 FIND_PACKAGE(VTK REQUIRED)
 INCLUDE(${USE_VTK_FILE})
 
-add_library(Layer Layer.cpp)
+if(NOT ${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+  set(Layer_includes ${CMAKE_CURRENT_SOURCE_DIR} PARENT_SCOPE)
+endif()
 
+add_library(Layer Layer.cpp)
 TARGET_LINK_LIBRARIES(Layer ${VTK_LIBRARIES})
